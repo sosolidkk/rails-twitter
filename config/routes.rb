@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :tweets
+  resources :tweets do
+    member do
+      put 'like', to: 'tweet#like'
+      put 'dislike', to: 'tweet#dislike'
+    end
+  end
   resources :users do
     get 'profile'
   end

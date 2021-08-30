@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_tweet, only: [:destroy, :like, :dislike]
 
   def index
     @tweets = Tweet.all
@@ -21,14 +22,27 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to '/', :notice => 'Your tweet has been deleted'
+  end
+
+  def like
+    @tweet.liked_by current_user
+    redirect_to '/'
+  end
+
+  def dislike
+    @tweet.disliked_by current_user
+    redirect_to '/'
   end
 
   private
 
   def tweet_params
     params.require(:tweet).permit(:body)
+  end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
   end
 end
