@@ -40,10 +40,6 @@
     margin: 5px;
 }
  
-a {
-    text-decoration: none !important;
-    color: #fff !important;
-}
 input[type=submit]{
     background-color: #62A9E0;
     border-color: transparent;
