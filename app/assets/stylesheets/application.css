@@ -59,14 +59,14 @@ input[type=submit]{
     margin: 5px;
 }
  
-input[type=text]{
+/* input[type=text]{
     padding: 12px 20px;
     margin: 8px 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     width: 50%;  
     border-radius: 5px;
     border: 2px solid #d3d3d3;  
-}
+} */
  
 .navbar-text{
     color: #fff;
