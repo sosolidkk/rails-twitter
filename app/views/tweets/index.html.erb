@@ -1,4 +1,9 @@
 <div>
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-success"><%= value %></div>
+  <% end %>
+
   <% @tweets.reverse.each do |tweet| %>
     <tr>
       <h1><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h1>
@@ -17,7 +22,7 @@
       <% end %>
     <% end %>
     <% if current_user == tweet.user %>
-        <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
+        <%= link_to "Delete", tweet_path(tweet.id), data: { confirm: 'Are you sure you want to delete this Tweet?' }, :method => :delete %>
     <% end %>
   <% end %>
 </div>

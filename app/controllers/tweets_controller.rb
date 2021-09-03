@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
     @tweet.user_id = current_user.id
 
     if @tweet.save
-      redirect_to '/tweets#index'
+      redirect_to root_url
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
-    redirect_to '/', :notice => 'Your tweet has been deleted'
+    redirect_to root_url, :notice => 'Your tweet has been deleted'
   end
 
   def like
