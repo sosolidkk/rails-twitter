@@ -23,7 +23,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
-    redirect_to root_url, :notice => 'Your tweet has been deleted'
+    redirect_to root_url, :notice => 'Your tweet has been deleted.'
   end
 
   def like
