@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light m-1 rounded shadow">
       <div class="container-fluid">
         <%= link_to "Vault", tweets_path, :class => 'navbar-brand' %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'New Tweet', new_tweet_path(current_user), :class => 'nav-link' %>
+              </li>
               <li class="nav-item">
                 <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'nav-link' %>
               </li>
