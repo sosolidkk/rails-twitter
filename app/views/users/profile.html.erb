@@ -1,25 +1,54 @@
-<div>
-<h1><%= @user_info.email %></h1>
-<h1><%= @user_info.username %></h1>
-<h3><%= @user_info.bio %></h3>
-<h2>You have tweet <%= @user_count.size %> time(s).</h2>
-</div>
-
-<div>
-<% @tweets.reverse.each do |tweet| %>
-  <% if @userinfo == tweet.user %>
-    <p>
-      <tr>
-        <div  class="">
-          <h3 class=""><td><%= link_to tweet.user.username, user_profile_path(tweet.user) %></td></h3>
-          <h2><td><%= tweet.body %></td></h2>
-          <h3><td><%= tweet.created_at %></td></h3>
-          <span class="">
-            <%= link_to "Delete", tweet_path(tweet.id), :confirm => "Are you sure?", :method => :delete %>
-          </span>
+<div class="row py-5 px-4">
+  <div class="col-md-12 mx-auto">
+    <!-- Profile widget -->
+    <div class="bg-white shadow rounded overflow-hidden">
+      <div class="px-4 pt-0 pb-0 cover">
+        <div class="media align-items-end profile-head">
+          <div class="profile mr-3 mt-3">
+            <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="150" class="rounded mb-2 img-thumbnail">
+          </div>
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-outline-dark btn-sm btn-block' %>
+          <div class="media-body mb-5">
+            <h4 class="mt-0 mb-0"><%= @user.username %></h4>
+            <p class="small mb-1"><%= @user.email %></p>
+          </div>
         </div>
-      </tr>
-    </p>
-  <% end %>
-<% end %>
+      </div>
+      <div class="bg-light p-4 d-flex justify-content-begin text-center">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block"><%= @tweets_count %></h5>
+            <small class="text-muted">TWEETS</small>
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">-</h5>
+            <small class="text-muted">FOLLOWERS</small>
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block">-</h5>
+            <small class="text-muted">FOLLOWING</small>
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <h5 class="mb-1">About</h5>
+        <div class="p-4 rounded shadow-sm bg-light">
+          <p class="font-italic mb-0"><%= @user.bio %></p>
+        </div>
+      </div>
+      <div class="py-4 px-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0">Recent tweets</h5>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-2 pr-lg-1">
+            <small>Tweet 1 goes here</small>
+          </div>
+          <div class="col-lg-6 mb-2 pl-lg-1">
+            <small>Tweet 2 goes here</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
