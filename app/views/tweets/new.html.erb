@@ -1,3 +1,14 @@
-<h1>New Tweet</h1>
-<%= render 'tweets/shared/form', tweet: @tweet %>
-<%= link_to 'Back', tweets_path %>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="login-form bg-light mt-4 p-4">
+      <h4 class="text-center mx-auto">New Tweet</h4>
+      <%= render 'tweets/shared/form', tweet: @tweet %>
+      <hr class="mt-4">
+      <div class="col-12">
+        <p class="text-center">
+          <%= link_to 'Back', tweets_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
