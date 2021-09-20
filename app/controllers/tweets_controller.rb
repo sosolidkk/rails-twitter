@@ -1,9 +1,12 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_tweet, only: [:destroy, :like, :dislike]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   def index
     @tweets = Tweet.all
+  end
+
+  def show
   end
 
   def new
@@ -18,6 +21,19 @@ class TweetsController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @tweet.update(tweet_params)
+        format.html { redirect_to root_url, notice: 'Tweet was succesfully updated.' }
+      else
+        format.html { render :edit }
+      end
     end
   end
 
