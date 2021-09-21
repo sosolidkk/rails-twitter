@@ -3,7 +3,7 @@
     <div class="login-form bg-light mt-4 p-4">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "row g-3" }) do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
-        <h4 class="col-md-6 mx-auto">Forgot your password?</h4>
+        <h4 class="text-center mx-auto">Forgot your password?</h4>
         <div class="col-12">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
