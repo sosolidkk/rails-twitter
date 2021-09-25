@@ -2,7 +2,11 @@
   <div class="col-12 col-lg-4 col-md-8 mb-2">
     <div class="card rounded shadow-sm">
       <div class="card-body">
-        <h5 class="card-title"><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h5>
+        <% if tweet.user.fake_username.present? %>
+          <h5 class="card-title"><%= link_to tweet.user.fake_username, user_profile_path(tweet.user) %></h5>
+        <% else %>
+          <h5 class="card-title"><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h5>
+        <% end %>
         <% if tweet.image.attached? %>
           <%= cl_image_tag tweet.image.key, :class => "card-img-top border rounded shadow" %>
         <% end %>
@@ -26,7 +30,7 @@
         <% end %>
       </div>
       <div class="card-footer text-muted">
-        <small><%= tweet.created_at.strftime("%d %b. %Y") %> </small>
+        <small><%= tweet.created_at.strftime("%d %b. %Y %H:%M") %></small>
       </div>
     </div>
   </div>

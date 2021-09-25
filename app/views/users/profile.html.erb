@@ -9,8 +9,11 @@
           </div>
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-primary btn-sm btn-block' %>
           <div class="media-body mb-5">
-            <h4 class="mt-0 mb-0"><%= @user.username %></h4>
-            <p class="small mb-1"><%= @user.email %></p>
+            <p>
+              <h4 class="mt-1 mb-0"><%= @user.fake_username %></h4>
+              <small><strong><%= @user.username %></strong></small><br/>
+              <small><%= @user.email %></small>
+            </p>
           </div>
         </div>
       </div>
