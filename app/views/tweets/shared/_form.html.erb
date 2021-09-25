@@ -13,6 +13,10 @@
     <%= form.label :body%><br />
     <%= form.text_area :body, :id => 'body', placeholder: 'What are you thinking?', class: "form-control"  %>
   </div>
+  <div class="col-12">
+    <%= form.label :image %><br />
+    <%= form.file_field :image, class: "form-control-file" %>
+  </div>
   <div class="col-12 mt-2 text-center">
     <%= form.submit 'Submit', :class => 'btn btn-primary' %>
   </div>

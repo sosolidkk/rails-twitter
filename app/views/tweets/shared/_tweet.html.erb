@@ -3,6 +3,9 @@
     <div class="card rounded shadow-sm">
       <div class="card-body">
         <h5 class="card-title"><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h5>
+        <% if tweet.image.attached? %>
+          <%= cl_image_tag tweet.image.key, :class => "card-img-top border rounded shadow" %>
+        <% end %>
         <p class="card-text"><%= simple_format(tweet.body) %></p>
         <% if current_user.liked? tweet %>
           <%= link_to dislike_tweet_path(tweet.id), method: :put, :class => 'btn btn-sm btn-outline-primary' do %>
