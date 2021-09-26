@@ -7,7 +7,7 @@
   <% end %>
 </div>
 <div class="mt-2">
-  <% @tweets.reverse.each do |tweet| %>
+  <% @tweets.each do |tweet| %>
     <%= render partial: 'tweets/shared/tweet', locals: { tweet: tweet } %>
   <% end %>
 </div>
