@@ -44,12 +44,12 @@ class TweetsController < ApplicationController
 
   def like
     @tweet.liked_by current_user
-    redirect_to '/'
+    redirect_back fallback_location: root_path
   end
 
   def dislike
     @tweet.disliked_by current_user
-    redirect_to '/'
+    redirect_back fallback_location: root_path
   end
 
   private
