@@ -13,19 +13,24 @@
         <p class="card-text"><%= simple_format(tweet.body) %></p>
         <% if current_user.liked? tweet %>
           <%= link_to dislike_tweet_path(tweet.id), method: :put, :class => 'btn btn-sm btn-outline-primary' do %>
-            <%= image_tag("like.png", :alt => "Like", height: 18, width: 20) %>
+            <%= image_tag("like.png", :alt => "Like", height: 18, width: 18) %>
             <%= tweet.get_likes.size %>
           <% end %>
         <% else %>
           <%= link_to like_tweet_path(tweet), method: :put, :class => 'btn btn-sm btn-outline-primary' do %>
-            <%= image_tag("dislike.png", :alt => "Like", height: 18, width: 20) %>
+            <%= image_tag("dislike.png", :alt => "Like", height: 18, width: 18) %>
             <%= tweet.get_likes.size %>
           <% end %>
         <% end %>
-        <% if current_user == tweet.user %>
+        <% if current_user.author?(tweet) %>
+          <%= link_to tweet_path(tweet), method: :get, :class => 'btn btn-sm btn-outline-primary' do %>
+            <%= image_tag("comment.png", :alt => "Comments", height: 18, width: 18) %>
+            0
+          <% end %>        <% end %>
+        <% if current_user.author?(tweet) %>
           <%= link_to "Edit", edit_tweet_path(tweet), :class => 'btn btn-sm btn-outline-primary' %>
         <% end %>
-        <% if current_user == tweet.user %>
+        <% if current_user.author?(tweet) %>
           <%= link_to "Delete", tweet_path(tweet.id), data: { confirm: 'Are you sure you want to delete this Tweet?' }, :method => :delete, :class => 'btn btn-sm btn-danger' %>
         <% end %>
       </div>
