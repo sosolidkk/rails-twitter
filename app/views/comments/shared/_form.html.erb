@@ -1,0 +1,17 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-lg-4 col-md-8 mb-2">
+    <div class="card rounded shadow-sm">
+      <div class="card-body">
+        <%= form_with(model: [@tweet, @tweet.comments.build], :html=> { :class => "row g-3" }) do |f| %>
+          <div class="form-group">
+            <%= f.label 'New comment' %>
+            <%= f.text_area :body, placeholder: 'Type your comment', class: 'form-control' %>
+          </div>
+          <div class="col-12 mt-2 text-center">
+            <%= f.submit 'Submit', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

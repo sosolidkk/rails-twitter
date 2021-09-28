@@ -1,2 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'tweets/shared/flash', locals: { flash: flash } %>
 <%= render partial: 'tweets/shared/tweet', locals: { tweet: @tweet } %>
+<%= render partial: 'comments/shared/form', locals: { tweet: @tweet } %>
+<%= render partial: 'comments/shared/comment', locals: { tweet: @tweet } %>

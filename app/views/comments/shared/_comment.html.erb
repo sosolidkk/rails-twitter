@@ -1,0 +1,23 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-12 col-lg-4 col-md-8 mb-2">
+    <h3 class="text-center"><strong>Comments - <%= tweet.comments.count %></strong></h3>
+    <hr>
+    <% tweet.comments.order(created_at: :asc).each do |comment| %>
+      <% unless !comment.persisted? %>
+        <div class="card rounded shadow-sm">
+          <div class="card-body">
+            <% if comment.user.fake_username.present? %>
+              <h5 class="card-title"><%= link_to comment.user.fake_username, user_profile_path(comment.user) %></h5>
+            <% else %>
+              <h5 class="card-title"><%= link_to comment.user.username, user_profile_path(comment.user) %></h5>
+            <% end %>
+            <%= simple_format(comment.body) %>
+            <% if current_user.comment_author?(comment) %>
+              <%= link_to 'Delete', [tweet, comment], method: :delete, data: { confirm: 'Are you sure want to delete this comment?' }, :class => 'btn btn-sm btn-danger' %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

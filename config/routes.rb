@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :tweets do
+    resources :comments
     member do
       put 'like', to: 'tweets#like'
       put 'dislike', to: 'tweets#dislike'
