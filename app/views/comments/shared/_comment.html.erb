@@ -4,7 +4,7 @@
     <hr>
     <% tweet.comments.order(created_at: :asc).each do |comment| %>
       <% unless !comment.persisted? %>
-        <div class="card rounded shadow-sm">
+        <div class="card rounded shadow-sm mb-1">
           <div class="card-body">
             <% if comment.user.fake_username.present? %>
               <h5 class="card-title"><%= link_to comment.user.fake_username, user_profile_path(comment.user) %></h5>
@@ -15,6 +15,11 @@
             <% if current_user.comment_author?(comment) %>
               <%= link_to 'Delete', [tweet, comment], method: :delete, data: { confirm: 'Are you sure want to delete this comment?' }, :class => 'btn btn-sm btn-danger' %>
             <% end %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>
+              Commented <%= distance_of_time_in_words_to_now(comment.created_at) %> ago
+            </small>
           </div>
         </div>
       <% end %>

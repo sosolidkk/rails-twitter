@@ -7,10 +7,10 @@
         <% else %>
           <h5 class="card-title"><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h5>
         <% end %>
-        <% if tweet.image.attached? %>
-          <%= cl_image_tag tweet.image.key, :class => "card-img-top border rounded shadow" %>
-        <% end %>
         <p class="card-text"><%= simple_format(tweet.body) %></p>
+        <% if tweet.image.attached? %>
+          <%= cl_image_tag tweet.image.key, :class => "card-img-top border rounded shadow mb-2" %>
+        <% end %>
         <% if current_user.liked? tweet %>
           <%= link_to dislike_tweet_path(tweet.id), method: :put, :class => 'btn btn-sm btn-outline-primary' do %>
             <%= image_tag("like.png", :alt => "Like", height: 18, width: 18) %>
