@@ -6,10 +6,10 @@
         <div class="card rounded shadow-sm mb-1 border-0">
           <div class="card-body">
             <div class="d-flex w-100 justify-content-between">
-              <% if tweet.user.fake_username.present? %>
-                <h6 class="card-title"><%= link_to tweet.user.fake_username, user_profile_path(tweet.user) %></h6>
+              <% if comment.user.fake_username.present? %>
+                <h6 class="card-title"><%= link_to comment.user.fake_username, user_profile_path(comment.user) %></h6>
               <% else %>
-                <h6 class="card-title"><%= link_to tweet.user.username, user_profile_path(tweet.user) %></h6>
+                <h6 class="card-title"><%= link_to comment.user.username, user_profile_path(comment.user) %></h6>
               <% end %>
               <small class="text-muted"><%= time_ago_in_words(tweet.created_at) %> ago</small>
             </div>
