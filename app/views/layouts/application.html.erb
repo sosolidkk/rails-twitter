@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# stylesheet_link_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light m-1 rounded shadow">
@@ -20,13 +20,26 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to 'New Tweet', new_tweet_path(current_user), :class => 'nav-link' %>
               </li>
-              <li class="nav-item">
-                <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" width="25" height="25" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <%= link_to 'New Tweet', new_tweet_path(current_user), :class => 'dropdown-item' %>
+                  </li>
+                  <li>
+                    <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'dropdown-item' %>
+                  </li>
+                  <li>
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item text-danger'  %>
+                  </li>
+                </ul>
               </li>
             <% end %>
           </ul>
