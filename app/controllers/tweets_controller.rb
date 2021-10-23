@@ -3,7 +3,8 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   def index
-    @tweets = Tweet.all.order(created_at: :desc)
+    @tweets = Tweet.order(created_at: :desc)
+                   .paginate(page: params[:page], per_page: 5)
   end
 
   def show

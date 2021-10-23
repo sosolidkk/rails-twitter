@@ -32,6 +32,9 @@ gem 'devise'
 gem 'acts_as_votable'
 gem 'cloudinary'
 
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap-style'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
