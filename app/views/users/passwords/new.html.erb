@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-4 offset-md-4">
     <div class="login-form bg-light mt-4 p-4">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "row g-3" }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
         <h4 class="text-center mx-auto">Forgot your password?</h4>
-        <div class="col-12">
-          <%= f.label :email %><br />
+        <div class="form-floating col-12">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
+          <%= f.label :email %><br />
         </div>
-        <div class="col-12 mt-2 text-center">
+        <div class="col-12 text-center">
           <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
         </div>
       <% end %>
