@@ -7,9 +7,9 @@
 }
 
 .bg-image {
-    background-image: url('background-login.jpeg');
     background-size: cover;
     background-position: center;
+    max-height: 50vw;
 }
 
 .login-heading {
