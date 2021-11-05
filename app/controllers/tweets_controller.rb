@@ -19,6 +19,12 @@ class TweetsController < ApplicationController
     @tweet.user_id = current_user.id
 
     if @tweet.save
+      # When the follow functionality is implemented, this should be changed to
+      # something like current_user.followers.each do |follower|
+      User.all_except(current_user).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: 'New tweet', notifiable: @tweet)
+      end
+
       redirect_to root_url, notice: 'Tweet was successfully created.'
     else
       render 'new'
