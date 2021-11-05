@@ -8,6 +8,9 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @notification = Notification.find_by(notifiable_id: @tweet)
+    # TODO: Mark the notification as read right here
+    # @notification.update(read_at: Time.zone.now)
   end
 
   def new
