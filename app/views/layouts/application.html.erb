@@ -19,7 +19,14 @@
         <div class="collapse navbar-collapse text-center" id="navbarNav">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-              <li class="nav-item">
+              <li class="nav-item dropdown" id="notifications" data-behavior="notifications">
+                <a class="btn dropdown-toggle" href="#" role="button" id="notifications-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= image_tag("notification.png", :alt => "Like", height: 18, width: 18) %>
+                  <small id="notifications-count"></small>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="notifications-dropdown" id="notifications-dropdown-list">
+                  <%# notifications will be created dinamically %>
+                </ul>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

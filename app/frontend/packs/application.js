@@ -10,6 +10,7 @@ import "channels"
 
 import "bootstrap"
 import "../packs/application.scss"
+import "../packs/notification.js"
 
 Rails.start()
 Turbolinks.start()
