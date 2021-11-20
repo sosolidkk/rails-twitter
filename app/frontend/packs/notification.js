@@ -1,5 +1,3 @@
-// TODO: Find a solution to do only one request per click
-// and not everytime a click happens
 let notificationList = document.getElementById("notifications-dropdown-list");
 let notificationCount = document.getElementById("notifications-count");
 let notificationDropdownBtn = document.getElementById("notifications-dropdown");
@@ -45,8 +43,6 @@ const handleNotificationRead = () => {
     })
 }
 
-// notificationDropdownBtn.onclick = () => { handleNotificationRead(); }
-
-document.addEventListener("DOMContentLoaded", function (event) {
+window.addEventListener("load", function () {
     notifications();
-});
+}, false);

@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
+      Notification.create_notifications(current_user, @comment)
       redirect_to @tweet, notice: 'Comment was successfully created.'
     else
       redirect_to @tweet, alert: 'There was a problem with the creation of your comment.'

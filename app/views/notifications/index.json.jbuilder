@@ -5,5 +5,9 @@ json.array! @notifications do |notification|
   json.notifiable do
     json.type "a #{notification.notifiable.class.to_s.underscore.humanize.downcase}"
   end
-  json.url tweet_path(notification.notifiable, anchor: dom_id(notification.notifiable))
+  if notification.notifiable.class.name.downcase == "tweet"
+    json.url tweet_path(notification.notifiable, anchor: dom_id(notification.notifiable))
+  elsif notification.notifiable.class.name.downcase == "comment"
+    json.url tweet_path(notification.notifiable.tweet, anchor: dom_id(notification.notifiable.tweet))
+  end
 end
