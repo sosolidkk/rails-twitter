@@ -11,7 +11,7 @@
               <% else %>
                 <h6 class="card-title"><%= link_to comment.user.username, user_profile_path(comment.user) %></h6>
               <% end %>
-              <small class="text-muted"><%= time_ago_in_words(tweet.created_at) %> ago</small>
+              <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
             </div>
             <%= simple_format(comment.body) %>
             <div class="d-flex justify-content-end">
