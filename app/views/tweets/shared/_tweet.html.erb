@@ -10,7 +10,7 @@
           <% end %>
           <small class="text-muted"><%= time_ago_in_words(tweet.created_at) %> ago</small>
         </div>
-        <p class="card-text"><%= simple_format(tweet.body) %></p>
+        <p class="card-text"><%= markdown(tweet.body) %></p>
         <% if tweet.image.attached? %>
           <%= cl_image_tag tweet.image.key, :class => "card-img-top border rounded", :onclick => "window.open(this.src, '_blank');" %>
         <% end %>

@@ -13,7 +13,7 @@
               <% end %>
               <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
             </div>
-            <%= simple_format(comment.body) %>
+            <%= markdown(comment.body) %>
             <div class="d-flex justify-content-end">
               <% if current_user.comment_author?(comment) %>
                 <%= link_to 'Delete', [tweet, comment], method: :delete, data: { confirm: 'Are you sure want to delete this comment?' }, :class => 'btn btn-sm btn-danger' %>
