@@ -2,15 +2,6 @@ let notificationList = document.getElementById("notifications-dropdown-list");
 let notificationCount = document.getElementById("notifications-count");
 let notificationDropdownBtn = document.getElementById("notifications-dropdown");
 
-// Helper method
-function on(eventType, selector, callback) {
-    document.body.addEventListener(eventType, function (event) {
-        if (event.target.matches(selector)) {
-            callback.call(event.target);
-        }
-    });
-}
-
 const headers = {
     'X-CSRF-Token': document.getElementsByName('csrf-token')[0].getAttribute('content'),
     'X-Requested-With': 'XMLHttpRequest',
@@ -57,10 +48,12 @@ const notifications = () => {
     });
 }
 
-window.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", function () {
     notifications();
 }, false);
 
-on("click", "#handle-notifications", function () {
-    handleNotificationRead()
+document.body.addEventListener("click", function (event) {
+    if (event.target.matches("#handle-notifications")) {
+        handleNotificationRead.call(event.target);
+    }
 });
