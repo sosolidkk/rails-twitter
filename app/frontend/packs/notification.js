@@ -43,17 +43,17 @@ const notifications = () => {
             });
 
             notificationList.innerHTML += '<li><hr class="dropdown-divider"></li>'
-            notificationList.innerHTML += '<li><a class="dropdown-item" id="handle-notifications" href="#">Clear notifications</a></li>'
+            notificationList.innerHTML += '<li><button class="dropdown-item" id="handle-notifications">Clear notifications</button></li>'
         }
     });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    notifications();
-}, false);
 
 document.body.addEventListener("click", function (event) {
     if (event.target.matches("#handle-notifications")) {
         handleNotificationRead.call(event.target);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    notifications();
+}, false);
