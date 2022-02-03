@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show destroy ]
-  before_action :set_tweet, only: %i[ create destroy ]
+  before_action :set_comment, only: %i[show destroy]
+  before_action :set_tweet, only: %i[create destroy]
 
   def create
     @comment = @tweet.comments.new(comment_params)
@@ -20,15 +20,16 @@ class CommentsController < ApplicationController
   end
 
   private
-    def set_tweet
-      @tweet = Tweet.find(params[:tweet_id])
-    end
 
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  def set_tweet
+    @tweet = Tweet.find(params[:tweet_id])
+  end
 
-    def comment_params
-      params.require(:comment).permit(:body, :tweet_id)
-    end
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body, :tweet_id)
+  end
 end

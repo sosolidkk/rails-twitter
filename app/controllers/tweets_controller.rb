@@ -1,14 +1,13 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_tweet, only: %i[show edit update destroy like dislike]
 
   def index
     @tweets = Tweet.order(created_at: :desc)
                    .paginate(page: params[:page], per_page: 5)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @tweet = Tweet.new
@@ -26,8 +25,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -55,11 +53,12 @@ class TweetsController < ApplicationController
   end
 
   private
-    def tweet_params
-      params.require(:tweet).permit(:body, :image)
-    end
 
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
+  def tweet_params
+    params.require(:tweet).permit(:body, :image)
+  end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 end
