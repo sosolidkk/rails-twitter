@@ -39,6 +39,24 @@
           <p class="font-italic mb-0"><%= @user.bio %></p>
         </div>
       </div>
+
+      <div class="px-4 py-3 rounded">
+        <h5 class="mb-1">Connection Info</h5>
+        <div class="p-4 rounded shadow-sm bg-light">
+          <p class="font-italic mb-0">
+            <strong>Logged counter</strong>: <%= @user.sign_in_count %>
+          </p>
+          <p class="font-italic mb-0">
+            <strong>Last login date</strong>: <%= time_ago_in_words(@user.last_sign_in_at) %>
+          </p>
+          <p class="font-italic mb-0">
+            <strong>Current IP</strong>: <%= @user.current_sign_in_ip %>
+          </p>
+          <p class="font-italic mb-0">
+            <strong>Last IP</strong>: <%= @user.last_sign_in_ip %>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
