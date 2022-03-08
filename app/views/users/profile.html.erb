@@ -47,7 +47,7 @@
             <strong>Logged counter</strong>: <%= @user.sign_in_count %>
           </p>
           <p class="font-italic mb-0">
-            <strong>Last login date</strong>: <%= time_ago_in_words(@user.last_sign_in_at) %>
+            <strong>Last login date</strong>: <%= time_ago_in_words(@user.last_sign_in_at) unless @user.last_sign_in_at.nil? %>
           </p>
           <p class="font-italic mb-0">
             <strong>Current IP</strong>: <%= @user.current_sign_in_ip %>
