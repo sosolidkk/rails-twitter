@@ -3,7 +3,7 @@ class Notification < ApplicationRecord
   belongs_to :actor, class_name: 'User'
   belongs_to :notifiable, polymorphic: true
 
-  scope :unread, ->{ where(read_at: nil) }
+  scope :unread, -> { where(read_at: nil) }
 
   def self.create_notifications(actor, notifiable)
     # When the follow functionality is implemented, this should be changed to
