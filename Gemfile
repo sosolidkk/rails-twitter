@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -31,21 +33,27 @@ gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
+  gem 'rubocop', '~> 1.25.0', require: false
+  gem 'rubocop-rails', '~> 2.13.0', require: false
+  gem 'rubocop-rspec', '~> 1.25.0', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :test do
   gem 'capybara', '>= 3.26'
+  gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', '~> 0.21.0'
   gem 'webdrivers'
-  gem 'rspec-rails', '~> 5.0.0'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

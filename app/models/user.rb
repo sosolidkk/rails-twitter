@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,10 +15,10 @@ class User < ApplicationRecord
   scope :all_except, ->(user) { where.not(id: user) }
 
   def tweet_author?(tweet)
-    tweets.where(id: tweet.id).exists?
+    tweets.exists?(id: tweet.id)
   end
 
   def comment_author?(comment)
-    comments.where(id: comment.id).exists?
+    comments.exists?(id: comment.id)
   end
 end
