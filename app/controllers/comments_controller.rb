@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show destroy]
+  before_action :set_comment, only: %i[destroy]
   before_action :set_tweet, only: %i[create destroy]
 
   def create
