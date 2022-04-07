@@ -6,6 +6,6 @@ class TweetMailer < ApplicationMailer
     @tweet = @user.tweets.last
     @recipients = User.all_except(@user).pluck(:email).join(',')
 
-    mail(to: @recipients, subject: 'You got a new post on fish!')
+    mail(bcc: @recipients, subject: 'Looking for your dream job?')
   end
 end

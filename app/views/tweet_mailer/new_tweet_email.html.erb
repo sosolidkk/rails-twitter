@@ -4,8 +4,79 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new fish from <%= @user.fake_username %>!</p>
+    <p>Hello,</p>
+
     <p>
-    <p>Created: <%= time_ago_in_words(@tweet.created_at) %></p>
+      Are you currently in the US? Here is an opportunity for you to work part
+      time after classes and earn $500 weekly.
+    </p>
+
+    <p>
+      The job is completely done online and can be completed anytime in the
+      evening/night at home and won't take much of your time daily, you don't
+      have to be online all day and don't need any professional skill to do
+      the job, all you need is just come online before going to bed to forward
+      all order of the day made by agents to the supplier and you are done for
+      the day.
+    </p>
+
+    <p>
+      We have 12 Agents in the United States that are working for the company,
+      they need materials like labels, staplers, envelopes, files and stamps
+      to do their daily job. they will email you whenever they need materials
+      and also state the type of materials they need and the quantity, it is
+      now your duty to contact the supplier through email to place orders for
+      the materials and also state the quantity that should be mailed to the
+      agent address through the post, the supplier will then visit the post to
+      mail the materials to the agent.
+    </p>
+
+    <p>
+      We are a New Zealand based company that offers company registration
+      services to clients all over the globe.
+    </p>
+
+    <p>
+      Each agent will only order for materials once in a week, we are
+      employing you just to reduce the workload for us, our supplier and for
+      the agents.
+    </p>
+
+    <p>
+      If you still care to proceed with the job, get back to us with the
+      information listed below then we can proceed from there.
+    </p>
+
+    <p>
+      <ol>
+        <li>NAME: <></li>
+        <li>ADDRESS: <></li>
+        <li>CITY: <></li>
+        <li>STATE: <></li>
+        <li>ZIP CODE: <></li>
+        <li>MOBILE: <></li>
+        <li>SEX? <></li>
+      </ol>
+    </p>
+
+    <p>
+      You currently have to be in the United States and the address you will
+      provide to start the job, the address we request for is for your weekly
+      $500 check to be mailed to.
+    </p>
+
+    <p>
+      You can try the job a week and see if it is what you can continue with
+      or not, you can also quit the job anytime after a week but you need to
+      notify us a day before.
+    </p>
+
+    <p>I await to hear from you ASAP if you want to proceed with the job.</p>
+
+    Best regards,
+    <p><%= @user.fake_username %></p>
+
+    <hr>
+    <p>Sent about <%= time_ago_in_words(@tweet.created_at) %> ago</p>
   </body>
 </html>
