@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :user, class: 'User' do
     email { 'test@gmail.com' }
-    encrypted_password { 'mypass' }
+    password { 'mypass' }
     username { 'test' }
     bio { 'test user bio' }
     fake_username { 'test_fake' }
