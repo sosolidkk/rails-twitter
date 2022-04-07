@@ -3,10 +3,10 @@
 class TweetMailer < ApplicationMailer
   def new_tweet_email
     @user = params[:user]
+    byebug
     @tweet = @user.tweets.last
+    @recipients = User.all_except(@user).pluck(:email).join(',')
 
-    User.all_except(@user).each do |user|
-      mail(to: user.email, subject: 'You got a new post on fish!')
-    end
+    mail(to: @recipients, subject: 'You got a new post on fish!')
   end
 end
