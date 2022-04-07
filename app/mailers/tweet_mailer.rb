@@ -3,7 +3,6 @@
 class TweetMailer < ApplicationMailer
   def new_tweet_email
     @user = params[:user]
-    byebug
     @tweet = @user.tweets.last
     @recipients = User.all_except(@user).pluck(:email).join(',')
 
