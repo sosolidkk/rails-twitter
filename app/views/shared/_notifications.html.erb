@@ -1,0 +1,23 @@
+<li class="nav-item dropdown" id="notifications" data-behavior="notifications">
+  <a
+    class="btn dropdown-toggle <%= dynamic_classname(@notifications) %>"
+    href="#"
+    role="button"
+    id="notifications-dropdown"
+    data-bs-toggle="dropdown"
+    aria-expanded="false">
+      <%= image_tag("notification.png", :alt => "Like", height: 18, width: 18) %>
+      <small id="notifications-count"><%= @notifications.count %></small>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="notifications-dropdown" id="notifications-dropdown-list">
+    <% @notifications.each do |notification| %>
+      <li>
+      <%= link_to notification_message(notification), notification_url(notification), class: 'dropdown-item' %>
+      </li>
+    <% end %>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <%= link_to 'Clear notifications', mark_as_read_notifications_path, class: 'dropdown-item text-danger', method: :post, remote: true %>
+    </li>
+  </ul>
+</li>

@@ -19,38 +19,8 @@
         <div class="collapse navbar-collapse text-center" id="navbarNav">
           <ul class="navbar-nav">
             <% if user_signed_in? %>
-              <li class="nav-item dropdown" id="notifications" data-behavior="notifications">
-                <a class="btn dropdown-toggle" href="#" role="button" id="notifications-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <%= image_tag("notification.png", :alt => "Like", height: 18, width: 18) %>
-                  <small id="notifications-count"></small>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="notifications-dropdown" id="notifications-dropdown-list">
-                  <%# notifications will be created dinamically %>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="https://images.unsplash.com/photo-1524704796725-9fc3044a58b2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" width="25" height="25" class="rounded-circle">
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <h6 class="dropdown-header">User: <%= current_user.username %></h6>
-                  </li>
-                  <li>
-                    <%= link_to 'New Tweet', new_tweet_path(current_user), :class => 'dropdown-item' %>
-                  </li>
-                  <li>
-                    <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'dropdown-item' %>
-                  </li>
-                  <li>
-                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
-                  </li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item text-danger'  %>
-                  </li>
-                </ul>
-              </li>
+              <%= render partial: 'shared/notifications'%>
+              <%= render partial: 'shared/profile' %>
             <% end %>
           </ul>
         </div>
