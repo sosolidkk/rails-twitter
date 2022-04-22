@@ -7,17 +7,21 @@
       <h6 class="dropdown-header">User: <%= current_user.username %></h6>
     </li>
     <li>
-      <%= link_to 'New Tweet', new_tweet_path(current_user), :class => 'dropdown-item' %>
+      <%= link_to 'New Tweet', new_tweet_path(current_user), class: 'dropdown-item' %>
     </li>
     <li>
-      <%= link_to 'My profile', user_profile_path(current_user.id), :class => 'dropdown-item' %>
+      <%= link_to 'My profile', user_profile_path(current_user.id), class: 'dropdown-item' %>
     </li>
     <li>
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
+      <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'dropdown-item text-danger'  %>
+      <%= link_to 'Ping fish', '/#', class: 'dropdown-item text-primary' %>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item text-danger'  %>
     </li>
   </ul>
 </li>
