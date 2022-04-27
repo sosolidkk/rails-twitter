@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    get 'profile'
+    get 'profile', to: 'users#profile'
   end
+
+  get 'ping_user', to: 'users#ping_user'
 end
