@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.1.2'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
 
@@ -30,6 +30,8 @@ gem 'will_paginate-bootstrap-style'
 
 gem 'coderay'
 gem 'redcarpet'
+
+gem 'net-smtp'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
