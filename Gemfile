@@ -33,7 +33,9 @@ gem 'ransack', '~> 3.2'
 gem 'coderay'
 gem 'redcarpet'
 
-gem 'net-smtp'
+gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
