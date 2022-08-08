@@ -5,8 +5,10 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show edit update destroy like dislike]
 
   def index
-    @tweets = Tweet.order(created_at: :desc)
-                   .paginate(page: params[:page], per_page: 5)
+    @q = Tweet.ransack(params[:q])
+    @tweets = @q.result
+                .order(created_at: :desc)
+                .paginate(page: params[:page], per_page: 5)
   end
 
   def show; end
